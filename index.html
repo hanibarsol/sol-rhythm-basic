@@ -293,7 +293,7 @@
     --note-color: var(--ink-soft);
     position: relative;
     flex: 0 0 auto;
-    width: clamp(68px, 11.5vw, 112px);
+    width: min(clamp(68px, 11.5vw, 112px), calc((100% - 108px) / 7));
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -413,6 +413,31 @@
     0% { opacity: 0; transform: translate(-50%, 6px) scale(0.8); }
     25% { opacity: 1; transform: translate(-50%, -6px) scale(1.1); }
     100% { opacity: 0; transform: translate(-50%, -38px) scale(1); }
+  }
+
+  /* ---------- Phone: all seven characters on screen ---------- */
+  /* One row needs ~512px. A phone gives ~330px, and a centred flex row
+     clips both ends without letting you scroll back, so דו and סי were
+     unreachable. Two rows (4 + 3) fit every character without making
+     any of them smaller than they are on a desktop. */
+
+  @media (max-width: 640px) {
+    .slots-track {
+      flex-wrap: wrap;
+      gap: 8px;
+      row-gap: 14px;
+      overflow-x: visible;
+    }
+
+    .slot {
+      width: calc((100% - 24px) / 4);
+      max-width: 112px;
+    }
+
+    .staff-lines {
+      top: 34%;
+      height: 52%;
+    }
   }
 
   /* ---------- Celebration ---------- */
