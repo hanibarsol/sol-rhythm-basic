@@ -89,6 +89,32 @@
   * { box-sizing: border-box; }
   [hidden] { display: none !important; }
 
+  /* ---------- Small hands tapping fast ---------- */
+  /* Repeated taps read as a double-click and the browser starts selecting
+     the numbers and names, or fires its own grey tap flash, or zooms in.
+     None of that belongs in a game for four-year-olds. The colour
+     lighting of a character stays — that is what teaches the beat. */
+
+  body {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .slot,
+  .slot-arch,
+  .replay-btn,
+  .btn-primary,
+  .home-btn {
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+  }
+
+  .slot-media img {
+    -webkit-user-drag: none;
+    pointer-events: none;
+  }
+
   html, body {
     margin: 0;
     padding: 0;
