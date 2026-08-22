@@ -587,11 +587,18 @@
    against the home button instead of leaving a hole where the other would
    have been. The row is forced to LTR so the arrows keep their order on a
    right-to-left page. */
+/* Hani asked for the three to share one row here, with the home button
+   between the two arrows. This lesson centres its title across the full
+   width, so the row below the home button — the platform default — sat on
+   the title on a 412px and 430px phone. The top row is empty here, so the
+   trio fits there and nothing in the lesson has to move. */
 .sol-nav {
+    position: static;
+    height: auto;
+}
+.sol-nav .sol-nav-btn {
     position: fixed;
-    top: 72px;
-    left: 12px;
-    height: 38px;
+    top: 19px;
     z-index: 800;
     display: flex;
     align-items: center;
@@ -611,11 +618,17 @@
     box-shadow: 0 4px 14px rgba(18, 48, 44, 0.35);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
+.sol-nav-next { left: 12px; }
+.sol-nav-back { left: 120px; }
+.home-btn { left: 58px; }
 .sol-nav-btn:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 8px 18px rgba(18, 48, 44, 0.45); }
 .sol-nav-btn:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 3px; }
 .sol-nav-btn svg { width: 20px; height: 20px; }
 @media (max-width: 640px) {
-    .sol-nav { top: 58px; left: 8px; height: 34px; gap: 6px; }
+    .sol-nav .sol-nav-btn { top: 13px; }
+    .sol-nav-next { left: 8px; }
+    .sol-nav-back { left: 98px; }
+    .home-btn { left: 48px; }
     .sol-nav-btn { width: 34px; height: 34px; }
     .sol-nav-btn svg { width: 18px; height: 18px; }
 }
